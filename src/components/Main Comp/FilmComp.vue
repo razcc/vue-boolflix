@@ -23,5 +23,8 @@ import FilmCard from './Cards/FilmCard.vue';
 #filmComp{
     display: flex;
     flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    padding: 30px;
 }
 </style>
