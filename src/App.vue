@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderComp />
+    <HeaderComp @emitQuery="emitQueryFunction"/>
     <MainComp />
   </div>
 </template>
@@ -9,11 +9,22 @@
 import HeaderComp from './components/HeaderComp.vue'
 import MainComp from './components/MainComp.vue'
 
+
 export default {
 	name: "App",
+  data(){
+    return{
+      valoreRicerca: "",
+    }
+  },
 	components: {
     HeaderComp,
     MainComp
+  },
+  methods: {
+    emitQueryFunction(emitQueryValore){
+      this.valoreRicerca = emitQueryValore
+    },
   },
 };
 </script>

@@ -26,12 +26,14 @@
 				/>
 
 				<input
+                    v-model="querySearch"
 					type="text"
 					class="dropdown-menu"
 					placeholder="Cerca il tuo Film-Serie"
 				/>
 			</div>
 
+            <!-- DropDown USERS -->
 			<div class="dropdown">
 				<!-- Bottone Attiva DropDown USERS-->
 				<div class="containerUser">
@@ -89,8 +91,13 @@ export default {
 	name: "HeaderComp",
 	components: {},
 	data() {
-		return {};
+		return {
+            querySearch: "",
+        };
 	},
+    updated(){
+        this.$emit ('emitQuery', this.querySearch)
+    }
 };
 </script>
 
