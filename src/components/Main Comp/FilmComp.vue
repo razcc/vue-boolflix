@@ -1,11 +1,15 @@
 <template>
     <div id="filmComp">
-        <FilmCard :propsToFilmCard= "propsToFilmComp" />
+        <div>
+            <FilmCard :propsToFilmCard= "propsToFilmComp" />
+        </div>
+        
     </div>
 </template>
 
 <script>
 import FilmCard from './Cards/FilmCard.vue';
+
     export default {
         name: "FilmComp",
         props: {
@@ -13,6 +17,7 @@ import FilmCard from './Cards/FilmCard.vue';
         },
         components: {
             FilmCard,
+            
         },
 
         
@@ -21,10 +26,9 @@ import FilmCard from './Cards/FilmCard.vue';
 
 <style lang="scss" scoped>
 #filmComp{
-    display: flex;
-    flex-wrap: wrap;
+    padding: 30px;
     width: 90%;
     margin: auto;
-    padding: 30px;
+    
 }
 </style>
