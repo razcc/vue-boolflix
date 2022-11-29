@@ -26,14 +26,14 @@
 				/>
 
 				<input
-                    v-model="querySearch"
+					v-model="querySearch"
 					type="text"
 					class="dropdown-menu"
 					placeholder="Cerca il tuo Film-Serie"
 				/>
 			</div>
 
-            <!-- DropDown USERS -->
+			<!-- DropDown USERS -->
 			<div class="dropdown">
 				<!-- Bottone Attiva DropDown USERS-->
 				<div class="containerUser">
@@ -92,12 +92,12 @@ export default {
 	components: {},
 	data() {
 		return {
-            querySearch: "",
-        };
+			querySearch: "",
+		};
 	},
-    updated(){
-        this.$emit ('emitQuery', this.querySearch)
-    }
+	updated() {
+		this.$emit("emitQuery", this.querySearch);
+	},
 };
 </script>
 
@@ -126,14 +126,14 @@ img {
 	height: 50%;
 }
 
-.colLeft span{
-    color: white;
-    font-size: 20px;
-    margin: 25px;
+.colLeft span {
+	color: white;
+	font-size: 20px;
+	margin: 25px;
 }
-.colLeft span:hover{
-    cursor: pointer;
-    color: rgba(255,3,0,0.8);
+.colLeft span:hover {
+	cursor: pointer;
+	color: rgba(255, 3, 0, 0.8);
 }
 
 // Col right Search

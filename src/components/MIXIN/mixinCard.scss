@@ -1,6 +1,5 @@
 @mixin cardStyle {
-  
-  .card {  
+  .card {
     width: calc(100% / 8);
     position: relative;
     border: none;
@@ -23,7 +22,7 @@
       transform: translateX(-100%) scale(0);
       opacity: 0;
     }
-    .info::-webkit-scrollbar{
+    .info::-webkit-scrollbar {
       width: 5px;
     }
     .info::-webkit-scrollbar-track {
@@ -34,7 +33,7 @@
       border-radius: 50px;
     }
     .info {
-      overflow: auto;   
+      overflow: auto;
       position: absolute;
       top: 0%;
       left: 0;
@@ -43,7 +42,6 @@
       transform: translateX(100%) scale(0);
       opacity: 0;
       transition: all 1.5s;
-     
 
       background: rgb(255, 0, 0);
       background: radial-gradient(
@@ -56,10 +54,18 @@
       padding: 20px;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
 
-      div {
-        margin-top: 50px
+      .containerLinguaVoto {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: start;
+        div {
+          margin-right: 20px;
+        }
+        .fa-star {
+          color: gold;
+        }
       }
 
       .title {
@@ -82,16 +88,17 @@
         height: 40px;
         z-index: 2;
 
-        img{
+        img {
           width: 100%;
         }
       }
 
-      .voto {
-        span {
-          margin-right: 10px;
-          font-size: 20px;
-        }
+      span {
+        font-size: 20px;
+        margin-right: 10px;
+      }
+      div {
+        display: flex;
       }
     }
   }

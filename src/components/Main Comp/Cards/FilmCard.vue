@@ -25,30 +25,112 @@
 					<span>{{ elem.original_title }}</span>
 				</div>
 
-				<!-- Voto -->
-				<div class="voto">
-					<Span>Voto:</Span>
-					<span>{{ elem.vote_average }}</span>
-				</div>
+				<div class="containerLinguaVoto">
+					<!-- Voto -->
 
-				<!--Lingua -->
+					<!-- 1 Stella -->
+					<div
+						v-if="elem.vote_average >= 0 && elem.vote_average <= 2"
+					>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+					</div>
 
-				<!-- Inglese -->
-				<div class="language" v-if="elem.original_language == 'en'">
-					<img src="../../../assets/ENGbandiera.png" alt="Lingua" />
-				</div>
+					<!-- 2 Stella -->
+					<div
+						v-else-if="
+							elem.vote_average >= 2 && elem.vote_average <= 4
+						"
+					>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+					</div>
 
-				<!-- Italiano -->
-				<div
-					class="language"
-					v-else-if="elem.original_language == 'it'"
-				>
-					<img src="../../../assets/bandItalia.png" alt="Lingua" />
-				</div>
+					<!-- 3 Stella -->
+					<div
+						v-else-if="
+							elem.vote_average >= 4 && elem.vote_average <= 6
+						"
+					>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+					</div>
 
-				<!-- Mondiale -->
-				<div class="language" v-else>
-					<img src="../../../assets/mondo.png" alt="Lingua" />
+					<!-- 4 Stella -->
+					<div
+						v-else-if="
+							elem.vote_average >= 6 && elem.vote_average <= 8
+						"
+					>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+					</div>
+
+					<!-- 5 Stella -->
+					<div v-else>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+					</div>
+
+					<!--Lingua -->
+					<!-- Inglese -->
+					<div class="language" v-if="elem.original_language == 'en'">
+						<img
+							src="../../../assets/ENGbandiera.png"
+							alt="Lingua"
+						/>
+					</div>
+
+					<!-- Italiano -->
+					<div
+						class="language"
+						v-else-if="elem.original_language == 'it'"
+					>
+						<img
+							src="../../../assets/bandItalia.png"
+							alt="Lingua"
+						/>
+					</div>
+
+					<!-- Mondiale -->
+					<div class="language" v-else>
+						<img src="../../../assets/mondo.png" alt="Lingua" />
+					</div>
 				</div>
 			</div>
 		</div>
@@ -68,8 +150,10 @@ export default {
 				"../../../assets/bandItalia.png",
 				"../../../assets/ENGbandiera.png",
 			],
+			arrayFilm: [],
 		};
 	},
+	updated() {},
 };
 </script>
 
