@@ -3,6 +3,9 @@
         <div>
             <FilmCard :propsToFilmCard= "propsToFilmComp" />
         </div>
+        <div :class='(propsToFilmComp == "") ? "disBlock" : "disNone"' >
+            <h2>Nessun Film cercato</h2>
+        </div>
         
     </div>
 </template>
@@ -25,10 +28,10 @@ import FilmCard from './Cards/FilmCard.vue';
 </script>
 
 <style lang="scss" scoped>
-#filmComp{
-    padding: 30px;
-    width: 90%;
-    margin: auto;
-    
+.disNone{
+    display: none;
+}
+.disBlock{
+    display: block;
 }
 </style>
