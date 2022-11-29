@@ -6,6 +6,13 @@
 				src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg"
 				alt=""
 			/>
+
+			<span>Home</span>
+			<span>Serie TV</span>
+			<span>Film</span>
+			<span>Nuovi e popolari</span>
+			<span>La mia lista</span>
+			<span>Sfoglia per lingua</span>
 		</div>
 
 		<!-- Colonna di Destra Ricerca -->
@@ -110,6 +117,16 @@ header {
 }
 img {
 	height: 50%;
+}
+
+.colLeft span{
+    color: white;
+    font-size: 20px;
+    margin: 25px;
+}
+.colLeft span:hover{
+    cursor: pointer;
+    color: rgba(255,3,0,0.8);
 }
 
 // Col right Search
