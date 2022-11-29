@@ -2,8 +2,11 @@
 	<div id="filmCard">
 		<div class="card" v-for="(elem, index) in propsToFilmCard" :key="index">
 			<!-- Poster -->
-			<div class="poster" >
-				<img :src="urlImgParziale + elem.poster_path" alt="POSTER FILM" />
+			<div class="poster">
+				<img
+					:src="urlImgParziale + elem.poster_path"
+					alt="POSTER FILM"
+				/>
 			</div>
 
 			<!-- Info FIlm  -->
@@ -32,7 +35,7 @@
 
 				<!-- Inglese -->
 				<div class="language" v-if="elem.original_language == 'en'">
-					<img src="../../../assets/ENGbandiera.png" alt="Lingia" />
+					<img src="../../../assets/ENGbandiera.png" alt="Lingua" />
 				</div>
 
 				<!-- Italiano -->
@@ -40,7 +43,12 @@
 					class="language"
 					v-else-if="elem.original_language == 'it'"
 				>
-					<img src="../../../assets/bandItalia.png" alt="Lingia" />
+					<img src="../../../assets/bandItalia.png" alt="Lingua" />
+				</div>
+
+				<!-- Mondiale -->
+				<div class="language" v-else>
+					<img src="../../../assets/mondo.png" alt="Lingua" />
 				</div>
 			</div>
 		</div>
@@ -62,7 +70,6 @@ export default {
 			],
 		};
 	},
-
 };
 </script>
 
