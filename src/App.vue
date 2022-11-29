@@ -1,7 +1,8 @@
 <template>
 	<div id="app">
 		<HeaderComp @emitQuery="emitQueryFunction" />
-		<MainComp />
+		<MainComp :propsFilm="arrayFilm"/>
+    
 	</div>
 </template>
 
@@ -17,6 +18,7 @@ export default {
 			apiKey: "ea284f453f6bf939a56b81b5d0741a04",
 			query: "&query=",
 			arrayFilm: "",
+      arraySerie: "",
 		};
 	},
 	components: {
