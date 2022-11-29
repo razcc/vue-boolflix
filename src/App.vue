@@ -6,38 +6,46 @@
 </template>
 
 <script>
-import HeaderComp from './components/HeaderComp.vue'
-import MainComp from './components/MainComp.vue'
+import HeaderComp from "./components/HeaderComp.vue";
+import MainComp from "./components/MainComp.vue";
 import axios from "axios";
-
 
 export default {
 	name: "App",
-  data(){
-    return{
-      valoreRicerca: "",
-      urlParziale: "https://api.themoviedb.org/3/search/movie?api_key=ea284f453f6bf939a56b81b5d0741a04&query=ritorno",
-      api: [],
-    }
-  },
-	components: {
-    HeaderComp,
-    MainComp
-  },
-  methods: {
-    emitQueryFunction(emitQueryValore){
-      this.valoreRicerca = emitQueryValore
-    },
-  },
-  mounted() {
-		axios
-			.get('https://api.themoviedb.org/3/search/movie?api_key=ea284f453f6bf939a56b81b5d0741a04&query=${valoreRicerca}')
-			.then((response) => {
-        console.log(response)
-				this.api = response.data.results;			
-			});
-
+	data() {
+		return {
+			apiKey: "ea284f453f6bf939a56b81b5d0741a04",
+			query: "&query=",
+			arrayFilm: "",
+		};
 	},
+	components: {
+		HeaderComp,
+		MainComp,
+	},
+	methods: {
+		emitQueryFunction(emitQueryValore) {
+			console.log(emitQueryValore);
+
+      // Axios per i film
+			axios
+				.get(
+					"https://api.themoviedb.org/3/search/movie?api_key=" +
+						this.apiKey +
+						this.query +
+						emitQueryValore
+				)
+				.then((response) => {
+					console.log(response);
+					this.arrayFilm = response.data.results;
+					console.log(this.arrayFilm);
+				});
+
+
+        // Axios per le Serie
+		},
+	},
+	mounted() {},
 };
 </script>
 
