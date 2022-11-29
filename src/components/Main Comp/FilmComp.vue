@@ -20,5 +20,8 @@ import FilmCard from './Cards/FilmCard.vue';
 </script>
 
 <style lang="scss" scoped>
-
+#filmComp{
+    display: flex;
+    flex-wrap: wrap;
+}
 </style>
