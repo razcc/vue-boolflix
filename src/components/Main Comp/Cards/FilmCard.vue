@@ -138,6 +138,8 @@ export default {
 	name: "FilmCard",
 	props: {
 		propsToFilmCard: Array,
+		propsLinguaCard: String,
+		propsGenereCard: String,
 	},
 	data() {
 		return {

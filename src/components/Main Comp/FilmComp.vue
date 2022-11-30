@@ -1,7 +1,11 @@
 <template>
 	<div id="filmComp">
 		<div>
-			<FilmCard :propsToFilmCard="propsToFilmComp" />
+			<FilmCard
+				:propsToFilmCard="propsToFilmComp"
+				:propsLinguaCard="propsLinguaFilm"
+				:propsGenereCard="propsGenereFilm"
+			/>
 		</div>
 		<div :class="propsToFilmComp == '' ? 'disBlock' : 'disNone'">
 			<h2>Nessun Film disponibile</h2>
@@ -16,6 +20,8 @@ export default {
 	name: "FilmComp",
 	props: {
 		propsToFilmComp: Array,
+		propsLinguaFilm: String,
+		propsGenereFilm: String,
 	},
 	components: {
 		FilmCard,

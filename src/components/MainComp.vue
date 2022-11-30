@@ -4,7 +4,11 @@
 			<div class="filmsTitle">
 				<h2>Films</h2>
 			</div>
-			<FilmComp :propsToFilmComp="propsFilm" />
+			<FilmComp
+				:propsToFilmComp="propsFilm"
+				:propsLinguaFilm="linguaFinale"
+				:propsGenereFilm="genereFinale"
+			/>
 		</div>
 
 		<div>
@@ -12,7 +16,11 @@
 				<h2>Series</h2>
 			</div>
 
-			<SeriesComp :propsToSeriesComp="propsSeries" />
+			<SeriesComp
+				:propsToSeriesComp="propsSeries"
+				:propsLinguaSerie="linguaFinale"
+				:propsGenereSerie="genereFinale"
+			/>
 		</div>
 	</main>
 </template>
@@ -26,6 +34,8 @@ export default {
 	props: {
 		propsFilm: Array,
 		propsSeries: Array,
+		linguaFinale: String,
+		genereFinale: String,
 	},
 	components: {
 		FilmComp,
@@ -42,23 +52,23 @@ main {
 	overflow: auto;
 }
 main > div {
-    padding: 30px;
-    width: 90%;
-    margin: auto;
-    position: relative;
+	padding: 30px;
+	width: 90%;
+	margin: auto;
+	position: relative;
 }
 .filmsTitle,
-.seriesTitle{
-    margin-bottom: 50px;
-    position: sticky;
-    top: 0;
-    left: 10%;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 10px;
+.seriesTitle {
+	margin-bottom: 50px;
+	position: sticky;
+	top: 0;
+	left: 10%;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	border-radius: 10px;
 }
-h2{
-    font-size: 40px;
+h2 {
+	font-size: 40px;
 }
 </style>

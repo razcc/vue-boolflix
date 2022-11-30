@@ -2,10 +2,17 @@
 	<div id="app">
 		<HeaderComp
 			:propsGeneri="generiPossibili"
-			@emitQuery="emitQueryFunction"
 			:propsLingue="linguePossibili"
+			@emitQuery="emitQueryFunction"
+			@emitGenere="sceltaGenere"
+			@emitLingua="sceltaLingua"
 		/>
-		<MainComp :propsFilm="arrayFilm" :propsSeries="arraySerie" />
+		<MainComp
+			:propsFilm="arrayFilm"
+			:propsSeries="arraySerie"
+			:linguaFinale="lingua"
+			:genereFinale="genere"
+		/>
 	</div>
 </template>
 
@@ -24,6 +31,8 @@ export default {
 			arraySerie: "",
 			generiPossibili: "",
 			linguePossibili: "",
+			genere: "",
+			lingua: "",
 		};
 	},
 	components: {
@@ -49,8 +58,6 @@ export default {
 				});
 
 			// Axios per le Serie
-
-			//https://api.themoviedb.org/3/search/tv?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
 			axios
 				.get(
 					"https://api.themoviedb.org/3/search/tv?api_key=" +
@@ -61,6 +68,12 @@ export default {
 				.then((risultato) => {
 					this.arraySerie = risultato.data.results;
 				});
+		},
+		sceltaGenere(valoreEmitSceltaGenere) {
+			this.genere = valoreEmitSceltaGenere;
+		},
+		sceltaLingua(valoreEmitSceltaLingua) {
+			this.lingua = valoreEmitSceltaLingua;
 		},
 	},
 	mounted() {

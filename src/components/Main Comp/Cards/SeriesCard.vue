@@ -141,6 +141,8 @@ export default {
 	name: "SeriesCard",
 	props: {
 		propsToSeriesCard: Array,
+		propsLinguaCard: String,
+		propsGenereCard: String,
 	},
 	data() {
 		return {

@@ -1,6 +1,10 @@
 <template>
 	<div id="SeriesComp">
-		<SeriesCard :propsToSeriesCard="propsToSeriesComp" />
+		<SeriesCard
+			:propsToSeriesCard="propsToSeriesComp"
+			:propsLinguaCard="propsLinguaSerie"
+			:propsGenereCard="propsGenereSerie"
+		/>
 		<div :class="propsToSeriesComp == '' ? 'disBlock' : 'disNone'">
 			<h2>Nessun Serie disponibile</h2>
 		</div>
@@ -14,6 +18,8 @@ export default {
 	name: "SeriesComp",
 	props: {
 		propsToSeriesComp: Array,
+		propsLinguaSerie: String,
+		propsGenereSerie: String,
 	},
 	components: {
 		SeriesCard,

@@ -34,8 +34,10 @@
 			</div>
 
 			<!-- Lingua -->
-			<select class="select">
-				<option class="selezione" value="">Lingua</option>
+			<select class="select" v-model="sceltaLingua">
+				<option value="" disabled selected class="selezione">
+					Lingua
+				</option>
 				<option
 					v-for="(elem, index) in propsLingue"
 					:key="index"
@@ -46,12 +48,14 @@
 			</select>
 
 			<!-- Genere -->
-			<select class="select">
-				<option>Genere</option>
+			<select class="select" v-model="sceltaGenere">
+				<option value="" disabled selected class="selezione">
+					Genere
+				</option>
 				<option
 					v-for="(elem, index) in propsGeneri"
 					:key="index"
-					:value="elem.name"
+					v-bind:value="elem.name"
 				>
 					{{ elem.name }}
 				</option>
@@ -121,10 +125,14 @@ export default {
 	data() {
 		return {
 			querySearch: "",
+			sceltaGenere: "",
+			sceltaLingua: "",
 		};
 	},
 	updated() {
 		this.$emit("emitQuery", this.querySearch);
+		this.$emit("emitGenere", this.sceltaGenere);
+		this.$emit("emitLingua", this.sceltaLingua);
 	},
 };
 </script>
