@@ -35,7 +35,7 @@ export default {
 		propsFilm: Array,
 		propsSeries: Array,
 		linguaFinale: String,
-		genereFinale: String,
+		genereFinale: Number,
 	},
 	components: {
 		FilmComp,

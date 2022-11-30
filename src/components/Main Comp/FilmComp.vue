@@ -21,7 +21,7 @@ export default {
 	props: {
 		propsToFilmComp: Array,
 		propsLinguaFilm: String,
-		propsGenereFilm: String,
+		propsGenereFilm: Number,
 	},
 	components: {
 		FilmCard,

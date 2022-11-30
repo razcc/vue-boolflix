@@ -139,12 +139,33 @@ export default {
 	props: {
 		propsToFilmCard: Array,
 		propsLinguaCard: String,
-		propsGenereCard: String,
+		propsGenereCard: Number,
 	},
 	data() {
 		return {
 			urlImgParziale: "https://image.tmdb.org/t/p/w185/",
+			arrayFinale: [],
+			variabileControllo: false,
 		};
+	},
+	methods: {
+		// element.genre_ids.include(this.propsGenereCard)
+		generazioneArrayFInale() {
+			console.log(this.propsGenereCard);
+			console.log(this.propsLinguaCard);
+			let varLingua = this.propsLinguaCard;
+
+			this.propsToFilmCard.forEach((elem) => {
+				console.log(elem);
+				if (elem.original_language == varLingua) {
+					this.arrayFinale.push(elem);
+				}
+			});
+			console.log(this.arrayFinale);
+		},
+	},
+	updated() {
+		this.generazioneArrayFInale();
 	},
 };
 </script>

@@ -41,7 +41,7 @@
 				<option
 					v-for="(elem, index) in propsLingue"
 					:key="index"
-					:value="elem.english_name"
+					:value="elem.iso_639_1"
 				>
 					{{ elem.english_name }}
 				</option>
@@ -55,7 +55,7 @@
 				<option
 					v-for="(elem, index) in propsGeneri"
 					:key="index"
-					v-bind:value="elem.name"
+					:value="elem.id"
 				>
 					{{ elem.name }}
 				</option>

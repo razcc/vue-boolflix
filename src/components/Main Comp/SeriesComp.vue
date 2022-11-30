@@ -19,7 +19,7 @@ export default {
 	props: {
 		propsToSeriesComp: Array,
 		propsLinguaSerie: String,
-		propsGenereSerie: String,
+		propsGenereSerie: Number,
 	},
 	components: {
 		SeriesCard,

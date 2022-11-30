@@ -142,7 +142,7 @@ export default {
 	props: {
 		propsToSeriesCard: Array,
 		propsLinguaCard: String,
-		propsGenereCard: String,
+		propsGenereCard: Number,
 	},
 	data() {
 		return {

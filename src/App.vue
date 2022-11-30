@@ -41,8 +41,6 @@ export default {
 	},
 	methods: {
 		emitQueryFunction(emitQueryValore) {
-			console.log(emitQueryValore);
-
 			// Axios per i film
 			axios
 				.get(
@@ -52,9 +50,7 @@ export default {
 						emitQueryValore
 				)
 				.then((response) => {
-					console.log(response);
 					this.arrayFilm = response.data.results;
-					console.log(this.arrayFilm);
 				});
 
 			// Axios per le Serie
@@ -84,9 +80,7 @@ export default {
 					this.apiKey
 			)
 			.then((response) => {
-				console.log(response);
 				this.generiPossibili = response.data.genres;
-				console.log(this.generiPossibili);
 			});
 
 		// Axios Lingue
@@ -96,9 +90,7 @@ export default {
 					this.apiKey
 			)
 			.then((response) => {
-				console.log(response);
 				this.linguePossibili = response.data;
-				console.log(this.linguePossibili);
 			});
 	},
 };
