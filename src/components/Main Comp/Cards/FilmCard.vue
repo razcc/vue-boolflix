@@ -5,7 +5,7 @@
 			<div class="poster">
 				<img
 					:src="urlImgParziale + elem.poster_path"
-					alt="POSTER FILM"
+					alt="POSTER FILM NON DISPONIBILE"
 				/>
 			</div>
 
@@ -13,7 +13,8 @@
 			<div class="info">
 				<!-- Titolo -->
 				<div class="title">
-					{{ elem.title }}
+					<span> Titolo: </span>
+					<span> {{ elem.title }}</span>
 				</div>
 
 				<!-- Titolo Originale -->
@@ -25,7 +26,8 @@
 					<span>{{ elem.original_title }}</span>
 				</div>
 
-				<div class="containerLinguaVoto">
+				<!-- Voto -->
+				<div>
 					<!-- Voto -->
 
 					<!-- 1 Stella -->
@@ -106,31 +108,24 @@
 							><font-awesome-icon icon="fa-solid fa-star"
 						/></span>
 					</div>
+				</div>
 
-					<!--Lingua -->
-					<!-- Inglese -->
-					<div class="language" v-if="elem.original_language == 'en'">
-						<img
-							src="../../../assets/ENGbandiera.png"
-							alt="Lingua"
-						/>
-					</div>
+				<!--Lingua -->
+				<!-- Inglese -->
+				<div class="language" v-if="elem.original_language == 'en'">
+					<img src="https://flagsapi.com/US/flat/64.png" />
+				</div>
+				<!-- Italiano -->
+				<div
+					class="language"
+					v-else-if="elem.original_language == 'it'"
+				>
+					<img src="https://flagsapi.com/IT/flat/64.png" />
+				</div>
 
-					<!-- Italiano -->
-					<div
-						class="language"
-						v-else-if="elem.original_language == 'it'"
-					>
-						<img
-							src="../../../assets/bandItalia.png"
-							alt="Lingua"
-						/>
-					</div>
-
-					<!-- Mondiale -->
-					<div class="language" v-else>
-						<img src="../../../assets/mondo.png" alt="Lingua" />
-					</div>
+				<!-- Mondiale -->
+				<div class="language" v-else>
+					<img src="../../../assets/mondo.png" alt="Lingua" />
 				</div>
 			</div>
 		</div>
@@ -146,14 +141,8 @@ export default {
 	data() {
 		return {
 			urlImgParziale: "https://image.tmdb.org/t/p/w185/",
-			arrayBandiere: [
-				"../../../assets/bandItalia.png",
-				"../../../assets/ENGbandiera.png",
-			],
-			arrayFilm: [],
 		};
 	},
-	updated() {},
 };
 </script>
 

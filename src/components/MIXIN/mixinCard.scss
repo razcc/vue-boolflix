@@ -1,38 +1,63 @@
-@mixin cardStyle {
-  .card {
+@mixin cardStyle
+{
+  .card
+  {
     width: calc(100% / 8);
     position: relative;
     border: none;
 
-    .poster {
+    .poster
+    {
       width: 100%;
       height: 100%;
       transition: all 1.5s;
 
-      img {
+
+      img
+      {
         width: 100%;
+        height: 100%;
+        color: black;
+        font-size: 30px;
+        background: rgb(57, 5, 5);
+        background: linear-gradient(0deg, rgba(57, 5, 5, 1) 0%, rgba(14, 150, 107, 1) 47%, rgba(255, 25, 25, 1) 100%);
+        display: flex;
+        font-family: cursive;
+
+
       }
     }
 
-    &:hover .info {
+    &:hover .info
+    {
       transform: translateX(0%) scale(1);
       opacity: 1;
     }
-    &:hover .poster {
+
+    &:hover .poster
+    {
       transform: translateX(-100%) scale(0);
       opacity: 0;
     }
-    .info::-webkit-scrollbar {
+
+    .info::-webkit-scrollbar
+    {
       width: 5px;
     }
-    .info::-webkit-scrollbar-track {
+
+    .info::-webkit-scrollbar-track
+    {
       background-color: red;
     }
-    .info::-webkit-scrollbar-thumb {
+
+    .info::-webkit-scrollbar-thumb
+    {
       background: black;
       border-radius: 50px;
     }
-    .info {
+
+    .info
+    {
       overflow: auto;
       position: absolute;
       top: 0%;
@@ -44,61 +69,27 @@
       transition: all 1.5s;
 
       background: rgb(255, 0, 0);
-      background: radial-gradient(
-        circle,
-        rgba(255, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 1) 100%
-      );
+      background: radial-gradient(circle,
+          rgba(255, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 100%);
       color: white;
-      text-align: center;
       padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
 
-      .containerLinguaVoto {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: start;
-        div {
-          margin-right: 20px;
-        }
-        .fa-star {
-          color: gold;
-        }
+
+      .fa-star
+      {
+        color: gold;
       }
 
-      .title {
-        font-size: 30px;
-        font-weight: bold;
-      }
-
-      .titoloOriginale {
-        div {
-          font-size: 20px;
-        }
-        span {
-          font-size: 20px;
-          font-weight: bold;
-        }
-      }
-
-      .language {
+      .language
+      {
         width: 40px;
         height: 40px;
-        z-index: 2;
 
-        img {
+        img
+        {
           width: 100%;
         }
-      }
-
-      span {
-        font-size: 20px;
-        margin-right: 10px;
-      }
-      div {
-        display: flex;
       }
     }
   }

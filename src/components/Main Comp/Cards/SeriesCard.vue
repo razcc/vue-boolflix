@@ -1,7 +1,10 @@
 <template>
 	<div id="seriesCard">
-		<div class="card" v-for="(elem, index) in propsToSeriesCard"  :key="index" >
-
+		<div
+			class="card"
+			v-for="(elem, index) in propsToSeriesCard"
+			:key="index"
+		>
 			<!-- Poster -->
 			<div class="poster">
 				<img :src="urlImgParziale + elem.poster_path" alt="Immagine" />
@@ -51,13 +54,10 @@ export default {
 <style lang="scss" scoped>
 @import "../../MIXIN/mixinCard.scss";
 
-
 #seriesCard {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
 	@include cardStyle;
-
 }
-
 </style>

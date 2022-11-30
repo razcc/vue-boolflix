@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<HeaderComp @emitQuery="emitQueryFunction" />
-		<MainComp :propsFilm="arrayFilm"  :propsSeries="arraySerie"/>
+		<MainComp :propsFilm="arrayFilm" :propsSeries="arraySerie" />
 	</div>
 </template>
 
