@@ -7,30 +7,129 @@
 		>
 			<!-- Poster -->
 			<div class="poster">
-				<img :src="urlImgParziale + elem.poster_path" alt="Immagine" />
+				<img
+					:src="urlImgParziale + elem.poster_path"
+					alt="Poster Non Disponibile"
+				/>
 			</div>
 
 			<!-- Info FIlm  -->
 			<div class="info">
 				<!-- Titolo -->
 				<div class="title">
-					{{ elem.title }}
+					<span> Titolo: </span>
+					<span> {{ elem.title }}</span>
 				</div>
 
 				<!-- Titolo Originale -->
-				<div class="titoloOriginale">
+				<div
+					class="titoloOriginale"
+					v-if="elem.title != elem.original_title"
+				>
 					<div>Titolo Originale:</div>
-					{{ elem.original_title }}
-				</div>
-
-				<!--Lingua -->
-				<div class="language">
-					{{ elem.original_language }}
+					<span>{{ elem.original_title }}</span>
 				</div>
 
 				<!-- Voto -->
-				<div class="voto">
-					{{ elem.vote_average }}
+				<div>
+					<!-- Voto -->
+
+					<!-- 1 Stella -->
+					<div
+						v-if="elem.vote_average >= 0 && elem.vote_average <= 2"
+					>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+					</div>
+
+					<!-- 2 Stella -->
+					<div
+						v-else-if="
+							elem.vote_average >= 2 && elem.vote_average <= 4
+						"
+					>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+					</div>
+
+					<!-- 3 Stella -->
+					<div
+						v-else-if="
+							elem.vote_average >= 4 && elem.vote_average <= 6
+						"
+					>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+					</div>
+
+					<!-- 4 Stella -->
+					<div
+						v-else-if="
+							elem.vote_average >= 6 && elem.vote_average <= 8
+						"
+					>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+					</div>
+
+					<!-- 5 Stella -->
+					<div v-else>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+						<span
+							><font-awesome-icon icon="fa-solid fa-star"
+						/></span>
+					</div>
+				</div>
+
+				<!--Lingua -->
+				<!-- Inglese -->
+				<div class="language" v-if="elem.original_language == 'en'">
+					<img src="https://flagsapi.com/US/flat/64.png" />
+				</div>
+				<!-- Italiano -->
+				<div
+					class="language"
+					v-else-if="elem.original_language == 'it'"
+				>
+					<img src="https://flagsapi.com/IT/flat/64.png" />
+				</div>
+
+				<!-- Mondiale -->
+				<div class="language" v-else>
+					<img src="../../../assets/mondo.png" alt="Lingua" />
 				</div>
 			</div>
 		</div>

@@ -8,6 +8,7 @@
 					alt="POSTER FILM NON DISPONIBILE"
 				/>
 			</div>
+			<div v-if="propsToFilmCard == ''">Nessun risultato</div>
 
 			<!-- Info FIlm  -->
 			<div class="info">
