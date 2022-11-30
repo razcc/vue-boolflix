@@ -33,6 +33,30 @@
 				/>
 			</div>
 
+			<!-- Lingua -->
+			<select class="select">
+				<option class="selezione" value="">Lingua</option>
+				<option
+					v-for="(elem, index) in propsLingue"
+					:key="index"
+					:value="elem.english_name"
+				>
+					{{ elem.english_name }}
+				</option>
+			</select>
+
+			<!-- Genere -->
+			<select class="select">
+				<option>Genere</option>
+				<option
+					v-for="(elem, index) in propsGeneri"
+					:key="index"
+					:value="elem.name"
+				>
+					{{ elem.name }}
+				</option>
+			</select>
+
 			<!-- DropDown USERS -->
 			<div class="dropdown">
 				<!-- Bottone Attiva DropDown USERS-->
@@ -90,6 +114,10 @@
 export default {
 	name: "HeaderComp",
 	components: {},
+	props: {
+		propsGeneri: Array,
+		propsLingue: Array,
+	},
 	data() {
 		return {
 			querySearch: "",
@@ -102,6 +130,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "./MIXIN/mixinHeader.scss";
 header {
 	height: 10vh;
 	background: rgb(80, 80, 80);
@@ -114,115 +143,6 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	padding: 20px;
-}
-
-// Col Left Logo
-.colLeft {
-	height: 100%;
-	display: flex;
-	align-items: center;
-}
-img {
-	height: 50%;
-}
-
-.colLeft span {
-	color: white;
-	font-size: 20px;
-	margin: 25px;
-}
-.colLeft span:hover {
-	cursor: pointer;
-	color: rgba(255, 3, 0, 0.8);
-}
-
-// Col right Search
-.colRight {
-	display: flex;
-	align-items: center;
-	margin-right: 50px;
-}
-
-// Bottone Ricerca
-.fa-magnifying-glass {
-	color: white;
-	font-size: 30px;
-	margin-right: 50px;
-	margin-left: 50px;
-}
-// DropDown Ricerca
-.dropdown-menu {
-	min-width: 20rem;
-	border-color: red;
-}
-
-// Bottone Users
-.containerUser {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-}
-.contUsersIcona {
-	border: 2px solid white;
-	border-radius: 10px;
-	padding: 5px;
-	background: rgb(99, 1, 0);
-	background: linear-gradient(
-		0deg,
-		rgba(99, 1, 0, 1) 0%,
-		rgba(231, 97, 97, 1) 100%
-	);
-}
-.dropbtn {
-	color: white;
-	font-size: 60px;
-}
-.containerUser:hover .dropbtn {
-	color: rgba(99, 1, 0, 1);
-}
-.fa-sort-up {
-	color: white;
-	display: none;
-}
-.fa-caret-down {
-	color: white;
-}
-.containerUser:hover .fa-caret-down {
-	color: red;
-	display: none;
-}
-.containerUser:hover .fa-sort-up {
-	display: block;
-}
-
-// DropDown Users
-.dropdown-content {
-	display: none;
-	position: absolute;
-	left: -300%;
-	background-color: rgba(0, 0, 0, 0.6);
-	min-width: 220px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-}
-
-.dropdown-content a {
-	color: white;
-	padding: 12px 16px;
-	font-size: 20px;
-	text-decoration: none;
-	display: block;
-}
-
-.dropdown:hover .dropdown-content {
-	display: block;
-}
-.disconetti {
-	border-top: 2px solid white;
-	display: flex;
-	justify-content: center;
-}
-.icona {
-	margin-right: 20px;
+	@include headerMixin;
 }
 </style>

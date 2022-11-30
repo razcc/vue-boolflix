@@ -1,6 +1,10 @@
 <template>
 	<div id="app">
-		<HeaderComp @emitQuery="emitQueryFunction" />
+		<HeaderComp
+			:propsGeneri="generiPossibili"
+			@emitQuery="emitQueryFunction"
+			:propsLingue="linguePossibili"
+		/>
 		<MainComp :propsFilm="arrayFilm" :propsSeries="arraySerie" />
 	</div>
 </template>
@@ -18,6 +22,8 @@ export default {
 			query: "&query=",
 			arrayFilm: "",
 			arraySerie: "",
+			generiPossibili: "",
+			linguePossibili: "",
 		};
 	},
 	components: {
@@ -57,7 +63,31 @@ export default {
 				});
 		},
 	},
-	mounted() {},
+	mounted() {
+		// Axios Generi
+		axios
+			.get(
+				" https://api.themoviedb.org/3/genre/movie/list?api_key=" +
+					this.apiKey
+			)
+			.then((response) => {
+				console.log(response);
+				this.generiPossibili = response.data.genres;
+				console.log(this.generiPossibili);
+			});
+
+		// Axios Lingue
+		axios
+			.get(
+				"https://api.themoviedb.org/3/configuration/languages?api_key=" +
+					this.apiKey
+			)
+			.then((response) => {
+				console.log(response);
+				this.linguePossibili = response.data;
+				console.log(this.linguePossibili);
+			});
+	},
 };
 </script>
 
