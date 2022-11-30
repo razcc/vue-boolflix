@@ -154,10 +154,14 @@ export default {
 			console.log(this.propsGenereCard);
 			console.log(this.propsLinguaCard);
 			let varLingua = this.propsLinguaCard;
+			let varGenere = this.propsGenereCard;
 
 			this.propsToFilmCard.forEach((elem) => {
 				console.log(elem);
-				if (elem.original_language == varLingua) {
+				if (
+					elem.original_language == varLingua &&
+					elem.genre_ids.includes(varGenere)
+				) {
 					this.arrayFinale.push(elem);
 				}
 			});
